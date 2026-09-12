@@ -1,0 +1,29 @@
+jehangirimasroor.com/
+│
+├── index.html
+├── projects.html
+├── photography.html
+├── resume.html
+│
+├── interests/
+│   ├── reading.html
+│   ├── football.html
+│   ├── f1.html
+│   └── ahmadiyyat.html
+│
+├── css/
+│   ├── style.css
+│   └── responsive.css
+│
+├── js/
+│   └── script.js
+│
+├── images/
+│   ├── profile/
+│   ├── photography/
+│   └── projects/
+│
+├── assets/
+│   └── Masroor-Jehangiri-Resume.pdf
+│
+└── README.md
