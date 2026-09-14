@@ -149,10 +149,6 @@ img {
     margin-top: 2.5rem;
 }
 
-.photo-grid img:hover {
-    opacity: 0.8;
-}
-
 @media (max-width: 700px) {
     section {
         padding-block: 4rem;
