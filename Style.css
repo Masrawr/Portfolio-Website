@@ -164,10 +164,6 @@ img {
         gap: 1rem;
     }
 
-    .photo-grid {
-        grid-template-columns: 1fr;
-    }
-
     .about-layout {
     grid-template-columns: 1fr;
     gap: 2rem;
