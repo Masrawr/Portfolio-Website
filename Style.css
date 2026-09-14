@@ -45,6 +45,11 @@ body {
     font-family: "Space Mono", monospace;
 }
 
+article {
+    padding-block: 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
 h1,
 h2,
 nav,
