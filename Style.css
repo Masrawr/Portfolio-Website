@@ -50,6 +50,10 @@ article {
     border-bottom: 1px solid var(--border);
 }
 
+.coursework {
+    color: var(--muted);
+}
+
 h1,
 h2,
 nav,
