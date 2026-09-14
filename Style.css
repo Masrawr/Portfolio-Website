@@ -19,6 +19,18 @@ header {
     border-bottom: 1px solid var(--border);
 }
 
+.hero-title {
+    font-family: "Space Mono", monospace;
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    line-height: 1.2;
+    max-width: 20ch;
+}
+
+.hero-description {
+    color: var(--muted);
+    max-width: 55ch;
+}
+
 footer {
     padding-block: 2rem;
     border-top: 1px solid var(--border);
@@ -85,9 +97,6 @@ h2 {
 p {
     font-size: 1.05rem;
     line-height: 1.7;
-}
-
-p {
     max-width: 70ch;
 }
 
@@ -101,6 +110,47 @@ footer {
     width: 90%;
     max-width: 1200px;
     margin-inline: auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.about-photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+
+
+.photo-grid img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: opacity 0.2s ease;
+}
+
+.photo-grid img:nth-child(even) {
+    margin-top: 2.5rem;
+}
+
+.photo-grid img:hover {
+    opacity: 0.8;
 }
 
 @media (max-width: 700px) {
@@ -117,26 +167,9 @@ footer {
     .photo-grid {
         grid-template-columns: 1fr;
     }
-}
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-}
-
-.photo-grid img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    transition: opacity 0.2s ease;
-}
-
-.photo-grid img:hover {
-    opacity: 0.8;
+    .about-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    }
 }
