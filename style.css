@@ -136,8 +136,6 @@ img {
     gap: 1rem;
 }
 
-
-
 .photo-grid img {
     width: 100%;
     aspect-ratio: 4 / 3;
@@ -147,6 +145,40 @@ img {
 
 .photo-grid img:nth-child(even) {
     margin-top: 2.5rem;
+}
+
+.education-entry {
+    margin-bottom: 0;
+}
+
+.codepath-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+}
+
+.certificate-photo {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    justify-self: end;
+}
+
+#projects article:first-of-type {
+    padding-top: 0;
+}
+
+#interests .interest:first-of-type {
+    padding-top: 0;
+}
+
+#experience article:first-of-type {
+    padding-top: 0;
 }
 
 @media (max-width: 700px) {
@@ -163,5 +195,14 @@ img {
     .about-layout {
     grid-template-columns: 1fr;
     gap: 2rem;
+    }
+
+    .codepath-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    }
+
+    .certificate-photo {
+        justify-self: start;
     }
 }
