@@ -32,6 +32,15 @@
     <a
     href="mailto:jehangirimasroor@gmail.com"> Email
     </a>
+
+    <button
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+        title="Switch to dark mode"
+    >
+        🌘
+    </button>
 </nav>
 </header>
 
@@ -122,11 +131,9 @@
          <article>
             <h3>Personal Website (this one!)</h3>
             
-            <p class="project-tech">HTML · CSS</p>
+            <p class="project-tech">HTML · CSS · JavaScript</p>
 
-            <p>
-                Built this personal website from scratch using HTML and CSS, with responsive layouts designed for desktop and mobile devices.
-            </p>
+            <p>Built this personal website from scratch using HTML, CSS, and JavaScript, with responsive layouts, theme switching, and an interactive photography gallery.</p>
         </article>
 
     </section>
@@ -436,8 +443,50 @@
 
 </main>
 
+<dialog id="lightbox">
+
+    <button
+        id="lightbox-close"
+        class="lightbox-button lightbox-close"
+        type="button"
+        aria-label="Close photo"
+    >
+        ×
+    </button>
+
+    <div class="lightbox-viewer">
+
+        <button
+            id="lightbox-prev"
+            class="lightbox-button"
+            type="button"
+            aria-label="Previous photo"
+        >
+            ←
+        </button>
+
+        <img
+            id="lightbox-image"
+            src=""
+            alt=""
+        >
+
+        <button
+            id="lightbox-next"
+            class="lightbox-button"
+            type="button"
+            aria-label="Next photo"
+        >
+            →
+        </button>
+
+    </div>
+
+</dialog>
 
 <footer>Built by Masroor Jehangiri. © 2026</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>

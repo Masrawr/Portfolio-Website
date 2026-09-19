@@ -7,6 +7,37 @@
     --content-width: 1200px;
 }
 
+body.dark-mode {
+    --background: #181818;
+    --text: #f3efe4;
+    --muted: #aaa69d;
+    --border: #44423e;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+
+    font-size: 1.7rem;
+    line-height: 1;
+
+    width: 2.4rem;
+    height: 2.4rem;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: transform 0.2s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.15);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -39,6 +70,7 @@ footer {
 
 nav {
     display: flex;
+    align-items: center;
     gap: 1.5rem;
 }
 
@@ -56,6 +88,7 @@ body {
     background: var(--background);
     color: var(--text);
     font-family: Georgia, serif;
+    transition: background 0.25s ease, color 0.25s ease;
 }
 
 .project-tech {
@@ -147,6 +180,54 @@ img {
     margin-top: 2.5rem;
 }
 
+.photo-grid img {
+    cursor: zoom-in;
+}
+
+#lightbox {
+    width: min(95%, 1200px);
+    max-width: none;
+    border: none;
+    padding: 1rem;
+    background: transparent;
+    overflow: visible;
+}
+
+#lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-viewer {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem;
+}
+
+#lightbox-image {
+    display: block;
+    max-width: 100%;
+    max-height: 85vh;
+    margin-inline: auto;
+    object-fit: contain;
+}
+
+.lightbox-button {
+    border: none;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 2rem;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
+
+.lightbox-close {
+    display: block;
+    margin-left: auto;
+    margin-bottom: 1rem;
+}
+
 .education-entry {
     margin-bottom: 0;
 }
@@ -187,9 +268,21 @@ img {
     }
 
     header {
+        position: relative;
+
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
+    }
+
+    #theme-toggle {
+        position: absolute;
+        top: 2rem;
+        right: 0;
+    }
+
+    header h1 {
+        padding-right: 3rem;
     }
 
     .about-layout {
