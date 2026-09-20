@@ -52,15 +52,22 @@ body.dark-mode {
 body {
     margin: 0;
 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
     background: var(--background);
     color: var(--text);
 
     font-family: Georgia, serif;
 
-    /* Smooth transition when switching themes */
     transition:
         background 0.25s ease,
         color 0.25s ease;
+}
+
+main {
+    flex: 1;
 }
 
 
@@ -559,9 +566,272 @@ footer {
     color: var(--muted);
 }
 
+/* =========================================================
+   15. READING PAGE
+   ========================================================= */
+
+/*
+   The Reading page is intentionally narrower than the
+   homepage.
+
+   Long-form text is easier to read when it does not stretch
+   across the full 1200px page width.
+*/
+.reading-page {
+    max-width: 950px;
+}
+
+
+/*
+   Reading sections use slightly less vertical spacing than
+   homepage sections because this page contains many sections.
+*/
+.reading-page section {
+    padding-block: 5rem;
+}
+
+
+/*
+   Adds a divider between the major Reading sections.
+
+   The first section does not need one because it begins
+   immediately underneath the page header.
+*/
+.reading-page section + section {
+    border-top: 1px solid var(--border);
+}
+
 
 /* =========================================================
-   15. MOBILE / RESPONSIVE STYLES
+   READING STATS
+   ========================================================= */
+
+/*
+   Displays the three reading statistics side-by-side:
+
+   64              34              6
+   Books Owned     Completed       This Year
+*/
+.reading-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 2rem;
+
+    margin-top: 2.5rem;
+}
+
+
+/*
+   Each statistic is kept simple instead of looking like
+   a separate card, which matches the rest of the site's
+   minimal design.
+*/
+.reading-stat {
+    padding-block: 1.5rem;
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* Large number */
+.reading-stat strong {
+    display: block;
+
+    font-family: "Space Mono", monospace;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+
+    line-height: 1;
+}
+
+
+/* Label underneath the number */
+.reading-stat span {
+    display: block;
+
+    margin-top: 0.75rem;
+
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   BOOKSHELF
+   ========================================================= */
+
+/*
+   This will automatically style the bookshelf photo once
+   you uncomment/add it in reading.html.
+*/
+.bookshelf-photo {
+    display: block;
+
+    width: 100%;
+    max-width: 850px;
+
+    margin-top: 2rem;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   BOOKS THAT STAYED WITH ME
+   ========================================================= */
+
+/*
+   The global <article> rule already gives book entries
+   borders and spacing.
+
+   This removes unnecessary space above the first book.
+*/
+.favorite-books .book-entry:first-of-type {
+    padding-top: 0;
+}
+
+
+/* Author name underneath each book title */
+.book-author {
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+    font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   FAVORITE QUOTES
+   ========================================================= */
+
+/*
+   Each saved quote becomes its own readable block.
+
+   The left border visually separates quotations from
+   normal paragraphs without making them look like cards.
+*/
+.favorite-quote {
+    margin: 3rem 0;
+    padding: 0.5rem 0 0.5rem 2rem;
+
+    border-left: 3px solid var(--border);
+}
+
+
+/*
+   Quotes are slightly larger than normal body text so that
+   they become the focus of this section.
+*/
+.favorite-quote p {
+    margin-top: 0;
+
+    font-size: 1.2rem;
+    line-height: 1.8;
+
+    max-width: 60ch;
+}
+
+
+/* Quote author / source */
+.favorite-quote cite {
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
+    font-size: 0.9rem;
+
+    font-style: normal;
+}
+
+
+/* =========================================================
+   AI QUOTE ANALYSIS
+   ========================================================= */
+
+/*
+   The prompt, AI response, and your own reaction all belong
+   to the same experiment, so they receive a shared visual
+   treatment.
+*/
+.ai-prompt,
+.ai-response,
+.ai-reaction {
+    margin-top: 3rem;
+    padding: 2rem;
+
+    border: 1px solid var(--border);
+}
+
+
+/*
+   Removes excess spacing above headings inside the boxes.
+*/
+.ai-prompt h3,
+.ai-response h3,
+.ai-reaction h3 {
+    margin-top: 0;
+
+    font-family: "Space Mono", monospace;
+}
+
+
+/*
+   The original prompt is visually muted so the much longer
+   analysis remains the primary content.
+*/
+.ai-prompt {
+    color: var(--muted);
+}
+
+
+/*
+   The AI response contains a long paragraph, so give it a
+   comfortable readable line length.
+*/
+.ai-response p {
+    max-width: 75ch;
+}
+
+
+/* =========================================================
+   QUOTE ARCHIVE
+   ========================================================= */
+
+/*
+   Future expandable archive using <details> and <summary>.
+*/
+.quote-archive {
+    margin-top: 2rem;
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+
+    padding-block: 1.5rem;
+}
+
+
+/*
+   <summary> is clickable, so the pointer cursor makes that
+   behavior clearer to visitors.
+*/
+.quote-archive summary {
+    cursor: pointer;
+
+    font-family: "Space Mono", monospace;
+    font-weight: bold;
+}
+
+
+/* Space between the summary and opened quote collection */
+.quote-archive[open] summary {
+    margin-bottom: 2rem;
+}
+
+
+/* =========================================================
+   16. MOBILE / RESPONSIVE STYLES
    ========================================================= */
 
 /*
@@ -650,5 +920,46 @@ footer {
     */
     .certificate-photo {
         justify-self: start;
+    }
+
+    /* Reading statistics stack vertically on smaller screens */
+    .reading-stats-grid {
+        grid-template-columns: 1fr;
+
+        gap: 1rem;
+    }
+
+
+    /*
+    Reading sections use less space on phones so the page
+    doesn't feel excessively stretched vertically.
+    */
+    .reading-page section {
+        padding-block: 3.5rem;
+    }
+
+
+    /* Reduce quote indentation on narrow screens */
+    .favorite-quote {
+        margin-block: 2rem;
+
+        padding-left: 1.25rem;
+    }
+
+
+    /* Slightly reduce quote text size on phones */
+    .favorite-quote p {
+        font-size: 1.1rem;
+    }
+
+
+    /*
+    AI sections need less padding on a narrow display so more
+    room remains for the actual text.
+    */
+    .ai-prompt,
+    .ai-response,
+    .ai-reaction {
+        padding: 1.25rem;
     }
 }
