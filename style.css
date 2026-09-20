@@ -1,3 +1,13 @@
+/* =========================================================
+   1. SITE VARIABLES / THEMES
+   ========================================================= */
+
+/*
+   CSS variables let us reuse the same colors throughout
+   the site instead of typing the color codes repeatedly.
+
+   Changing one variable here affects every rule that uses it.
+*/
 :root {
     --background: #f3efe4;
     --text: #181818;
@@ -7,6 +17,14 @@
     --content-width: 1200px;
 }
 
+
+/*
+   When JavaScript adds the "dark-mode" class to <body>,
+   these variables override the light-mode colors above.
+
+   Because the rest of the site uses these variables,
+   we don't need separate dark-mode rules for every element.
+*/
 body.dark-mode {
     --background: #181818;
     --text: #f3efe4;
@@ -14,6 +32,170 @@ body.dark-mode {
     --border: #44423e;
 }
 
+
+/* =========================================================
+   2. GLOBAL / BASE STYLES
+   ========================================================= */
+
+/*
+   Makes width calculations easier.
+
+   Padding and borders are included inside an element's
+   declared width instead of making the element larger.
+*/
+* {
+    box-sizing: border-box;
+}
+
+
+/* Main styling shared by the entire page */
+body {
+    margin: 0;
+
+    background: var(--background);
+    color: var(--text);
+
+    font-family: Georgia, serif;
+
+    /* Smooth transition when switching themes */
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+
+/*
+   Keeps images responsive.
+
+   They can shrink with the page but will not grow
+   wider than the space available to them.
+*/
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Default styling for links */
+a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+
+/* Underline links when the mouse is over them */
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   3. TYPOGRAPHY
+   ========================================================= */
+
+/*
+   These elements use the monospace font to create the
+   technical/editorial look used throughout the website.
+*/
+h1,
+h2,
+nav,
+.label {
+    font-family: "Space Mono", monospace;
+}
+
+
+/* Main site name in the header */
+header h1 {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    line-height: 1;
+    margin: 0;
+}
+
+
+/* Main section headings */
+h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+
+/*
+   Paragraphs are limited to 70 characters wide so that
+   text remains comfortable to read on large screens.
+*/
+p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 70ch;
+}
+
+
+/* =========================================================
+   4. MAIN PAGE LAYOUT
+   ========================================================= */
+
+/*
+   Header, main content and footer all share the same width.
+
+   They use 90% of the screen until reaching the maximum
+   content width of 1200px.
+*/
+header,
+main,
+footer {
+    width: 90%;
+    max-width: var(--content-width);
+    margin-inline: auto;
+}
+
+
+/*
+   Gives each homepage section plenty of vertical separation.
+*/
+section {
+    padding-block: 7rem;
+}
+
+
+/* =========================================================
+   5. HEADER / NAVIGATION
+   ========================================================= */
+
+/*
+   Header uses Flexbox:
+
+   Masroor Jehangiri                Navigation Links
+*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-block: 2rem;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+/*
+   Places navigation items in one horizontal row
+   and vertically aligns them with each other.
+*/
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+
+/* =========================================================
+   6. THEME TOGGLE
+   ========================================================= */
+
+/*
+   The theme button is intentionally styled like an icon
+   instead of a traditional rectangular button.
+*/
 #theme-toggle {
     background: none;
     border: none;
@@ -22,6 +204,7 @@ body.dark-mode {
     font-size: 1.7rem;
     line-height: 1;
 
+    /* Creates a larger clickable area around the emoji */
     width: 2.4rem;
     height: 2.4rem;
 
@@ -34,267 +217,437 @@ body.dark-mode {
     transition: transform 0.2s ease;
 }
 
+
+/* Slightly enlarges the theme icon when hovered */
 #theme-toggle:hover {
     transform: scale(1.15);
 }
 
-* {
-    box-sizing: border-box;
-}
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-block: 2rem;
-    border-bottom: 1px solid var(--border);
-}
+/* =========================================================
+   7. HERO SECTION
+   ========================================================= */
 
+/*
+   Large introductory statement at the top of the homepage.
+
+   clamp() allows the text to automatically scale between
+   a minimum and maximum size depending on screen width.
+*/
 .hero-title {
     font-family: "Space Mono", monospace;
+
     font-size: clamp(1.8rem, 4vw, 3.5rem);
     line-height: 1.2;
+
     max-width: 20ch;
 }
 
+
+/* Secondary text underneath the main hero statement */
 .hero-description {
     color: var(--muted);
     max-width: 55ch;
 }
 
-footer {
-    padding-block: 2rem;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
-}
 
-nav {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
+/* =========================================================
+   8. ABOUT SECTION
+   ========================================================= */
 
-a {
-    color: var(--text);
-    text-decoration: none;
-}
+/*
+   Desktop About layout:
 
-a:hover {
-    text-decoration: underline;
-}
+   About text            Photo
+   About text            Photo
 
-body {
-    margin: 0;
-    background: var(--background);
-    color: var(--text);
-    font-family: Georgia, serif;
-    transition: background 0.25s ease, color 0.25s ease;
-}
-
-.project-tech {
-    color: var(--muted);
-    font-family: "Space Mono", monospace;
-}
-
-article {
-    padding-block: 2rem;
-    border-bottom: 1px solid var(--border);
-}
-
-.coursework {
-    color: var(--muted);
-}
-
-.interest {
-    padding-block: 2rem;
-    border-bottom: 1px solid var(--border);
-}
-
-h1,
-h2,
-nav,
-.label {
-    font-family: "Space Mono", monospace;
-}
-
-header h1 {
-    font-size: clamp(1.75rem, 4vw, 3rem);
-    line-height: 1;
-    margin: 0;
-}
-
-h2 {
-    font-size: clamp(1.8rem, 4vw, 3rem);
-}
-
-p {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    max-width: 70ch;
-}
-
-section {
-    padding-block: 7rem;
-}
-
-header,
-main,
-footer {
-    width: 90%;
-    max-width: 1200px;
-    margin-inline: auto;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
+   "2fr 1fr" means the text receives roughly twice as
+   much horizontal space as the photo.
+*/
 .about-layout {
     display: grid;
     grid-template-columns: 2fr 1fr;
+
     gap: 4rem;
+
     align-items: start;
 }
 
+
+/*
+   Keeps the About photo at a consistent portrait shape.
+
+   object-fit: cover prevents stretching while allowing
+   the image to fill its container.
+*/
 .about-photo {
     width: 100%;
     aspect-ratio: 4 / 5;
+
     object-fit: cover;
 }
 
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+
+/* =========================================================
+   9. PROJECTS / EXPERIENCE
+   ========================================================= */
+
+/*
+   Projects and experience entries use <article> elements.
+
+   Each one receives spacing and a dividing line underneath.
+*/
+article {
+    padding-block: 2rem;
+
+    border-bottom: 1px solid var(--border);
 }
 
-.photo-grid img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    transition: opacity 0.2s ease;
+
+/* Technology labels such as "HTML · CSS · JavaScript" */
+.project-tech {
+    color: var(--muted);
+
+    font-family: "Space Mono", monospace;
 }
 
-.photo-grid img:nth-child(even) {
-    margin-top: 2.5rem;
-}
 
-.photo-grid img {
-    cursor: zoom-in;
-}
-
-#lightbox {
-    width: min(95%, 1200px);
-    max-width: none;
-    border: none;
-    padding: 1rem;
-    background: transparent;
-    overflow: visible;
-}
-
-#lightbox::backdrop {
-    background: rgba(0, 0, 0, 0.9);
-}
-
-.lightbox-viewer {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 1rem;
-}
-
-#lightbox-image {
-    display: block;
-    max-width: 100%;
-    max-height: 85vh;
-    margin-inline: auto;
-    object-fit: contain;
-}
-
-.lightbox-button {
-    border: none;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    font-size: 2rem;
-    width: 3rem;
-    height: 3rem;
-    cursor: pointer;
-}
-
-.lightbox-close {
-    display: block;
-    margin-left: auto;
-    margin-bottom: 1rem;
-}
-
-.education-entry {
-    margin-bottom: 0;
-}
-
-.codepath-row {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 4rem;
-    align-items: center;
-
-    margin-top: 3rem;
-    padding-top: 3rem;
-    border-top: 1px solid var(--border);
-}
-
-.certificate-photo {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    justify-self: end;
-}
-
+/*
+   The first project doesn't need extra padding above it
+   because the Projects heading already creates spacing.
+*/
 #projects article:first-of-type {
     padding-top: 0;
 }
 
-#interests .interest:first-of-type {
-    padding-top: 0;
-}
 
+/* Same spacing adjustment for the Experience section */
 #experience article:first-of-type {
     padding-top: 0;
 }
 
+
+/* =========================================================
+   10. EDUCATION
+   ========================================================= */
+
+/*
+   Individual education entries do not need extra
+   bottom margin because layout spacing handles it.
+*/
+.education-entry {
+    margin-bottom: 0;
+}
+
+
+/* Makes the coursework line visually less prominent */
+.coursework {
+    color: var(--muted);
+}
+
+
+/*
+   CodePath section uses a two-column grid:
+
+   CodePath information        Certificate
+*/
+.codepath-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    gap: 4rem;
+
+    align-items: center;
+
+    /*
+       Creates separation between the CSI degree and
+       the CodePath certification.
+    */
+    margin-top: 3rem;
+    padding-top: 3rem;
+
+    border-top: 1px solid var(--border);
+}
+
+
+/*
+   Limits the certificate size and aligns it to the
+   right side of its grid column.
+*/
+.certificate-photo {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+
+    justify-self: end;
+}
+
+
+/* =========================================================
+   11. INTERESTS
+   ========================================================= */
+
+/*
+   Each interest gets vertical spacing and a divider
+   similar to the project entries.
+*/
+.interest {
+    padding-block: 2rem;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+/*
+   Removes unnecessary space above the first interest
+   because the Interests heading already provides spacing.
+*/
+#interests .interest:first-of-type {
+    padding-top: 0;
+}
+
+
+/* =========================================================
+   12. PHOTOGRAPHY GRID
+   ========================================================= */
+
+/*
+   Displays photography in two equal-width columns.
+*/
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 1rem;
+}
+
+
+/*
+   Every gallery image fills its grid column.
+
+   A 4:3 aspect ratio keeps the gallery visually consistent,
+   while object-fit crops images without stretching them.
+*/
+.photo-grid img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
+
+    /* Indicates that clicking will enlarge the image */
+    cursor: zoom-in;
+
+    transition: opacity 0.2s ease;
+}
+
+
+/*
+   Pushes every second image slightly downward.
+
+   This creates the staggered photography layout instead
+   of making every row perfectly level.
+*/
+.photo-grid img:nth-child(even) {
+    margin-top: 2.5rem;
+}
+
+
+/* =========================================================
+   13. PHOTOGRAPHY LIGHTBOX
+   ========================================================= */
+
+/*
+   <dialog> contains the enlarged photograph.
+
+   Most of its background is transparent because the dark
+   overlay is handled separately with ::backdrop.
+*/
+#lightbox {
+    width: min(95%, 1200px);
+    max-width: none;
+
+    border: none;
+
+    padding: 1rem;
+
+    background: transparent;
+
+    overflow: visible;
+}
+
+
+/*
+   Darkens the page behind the currently opened photograph.
+*/
+#lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+
+/*
+   Lightbox layout:
+
+   ←        Large Photo        →
+
+   Grid allows the photograph to use most of the available
+   space while keeping navigation buttons on both sides.
+*/
+.lightbox-viewer {
+    display: grid;
+
+    grid-template-columns:
+        auto
+        minmax(0, 1fr)
+        auto;
+
+    align-items: center;
+
+    gap: 1rem;
+}
+
+
+/*
+   Enlarged photograph remains inside the screen while
+   keeping its original proportions.
+*/
+#lightbox-image {
+    display: block;
+
+    max-width: 100%;
+    max-height: 85vh;
+
+    margin-inline: auto;
+
+    object-fit: contain;
+}
+
+
+/* Shared styling for previous, next and close buttons */
+.lightbox-button {
+    border: none;
+
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+
+    font-size: 2rem;
+
+    width: 3rem;
+    height: 3rem;
+
+    cursor: pointer;
+}
+
+
+/* Places the close button on the top-right of the lightbox */
+.lightbox-close {
+    display: block;
+
+    margin-left: auto;
+    margin-bottom: 1rem;
+}
+
+
+/* =========================================================
+   14. FOOTER
+   ========================================================= */
+
+footer {
+    padding-block: 2rem;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   15. MOBILE / RESPONSIVE STYLES
+   ========================================================= */
+
+/*
+   These rules only apply when the browser is 700px
+   wide or smaller.
+
+   Desktop rules remain above, while this section overrides
+   only the properties that need to change on small screens.
+*/
 @media (max-width: 700px) {
+
+    /*
+       Sections need slightly less vertical spacing
+       on smaller screens.
+    */
     section {
         padding-block: 4rem;
     }
 
+
+    /*
+       Stack the site name and navigation vertically
+       instead of forcing everything into one row.
+    */
     header {
         position: relative;
 
         flex-direction: column;
         align-items: flex-start;
+
         gap: 1rem;
     }
 
+
+    /*
+       Keep the theme button in the top-right corner
+       even though the rest of the header becomes stacked.
+    */
     #theme-toggle {
         position: absolute;
+
         top: 2rem;
         right: 0;
     }
 
+
+    /*
+       Prevent a long name from overlapping the theme button.
+    */
     header h1 {
         padding-right: 3rem;
     }
 
+
+    /*
+       About section changes from:
+
+       Text | Photo
+
+       to:
+
+       Text
+       Photo
+    */
     .about-layout {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+        grid-template-columns: 1fr;
+
+        gap: 2rem;
     }
 
+
+    /*
+       CodePath information and certificate also stack
+       vertically on smaller devices.
+    */
     .codepath-row {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+        grid-template-columns: 1fr;
+
+        gap: 2rem;
     }
 
+
+    /*
+       On mobile, align the certificate to the left rather
+       than the right side of its container.
+    */
     .certificate-photo {
         justify-self: start;
     }
