@@ -147,7 +147,6 @@ p {
    They use 90% of the screen until reaching the maximum
    content width of 1200px.
 */
-header,
 main,
 footer {
     width: 90%;
@@ -178,9 +177,40 @@ header {
     justify-content: space-between;
     align-items: center;
 
+    /* Full-width sticky bar */
+    width: 100%;
+    max-width: none;
+
+    /*
+       Keeps the contents aligned with the rest of the site.
+
+       5% matches your normal 90%-wide layout.
+       On very wide screens, the calculation keeps everything
+       aligned with the 1200px max-width content area.
+    */
+    padding-left: max(
+        5%,
+        calc((100% - var(--content-width)) / 2)
+    );
+
+    padding-right: max(
+        5%,
+        calc((100% - var(--content-width)) / 2)
+    );
+
     padding-block: 2rem;
 
     border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: var(--background);
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
 }
 
 
@@ -857,11 +887,10 @@ footer {
        instead of forcing everything into one row.
     */
     header {
-        position: relative;
+        position: sticky;
 
         flex-direction: column;
         align-items: flex-start;
-
         gap: 1rem;
     }
 
