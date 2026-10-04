@@ -759,12 +759,11 @@ footer {
 .favorite-quote p {
     margin-top: 0;
 
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.8;
 
     max-width: 60ch;
 }
-
 
 /* Quote author / source */
 .favorite-quote cite {
