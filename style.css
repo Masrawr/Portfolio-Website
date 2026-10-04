@@ -584,10 +584,7 @@ article {
     margin-bottom: 1rem;
 }
 
-
-/* =========================================================
-   14. FOOTER
-   ========================================================= */
+/* 14. FOOTER */
 
 footer {
     padding-block: 2rem;
@@ -597,9 +594,7 @@ footer {
     color: var(--muted);
 }
 
-/* =========================================================
-   15. READING PAGE
-   ========================================================= */
+/* 15. READING PAGE */
 
 /*
    The Reading page is intentionally narrower than the
@@ -618,20 +613,8 @@ footer {
    homepage sections because this page contains many sections.
 */
 .reading-page section {
-    padding-block: 5rem;
+    padding-block: 2.5rem;
 }
-
-
-/*
-   Adds a divider between the major Reading sections.
-
-   The first section does not need one because it begins
-   immediately underneath the page header.
-*/
-.reading-page section+section {
-    border-top: 1px solid var(--border);
-}
-
 
 /* =========================================================
    READING STATS
@@ -649,7 +632,7 @@ footer {
 
     gap: 2rem;
 
-    margin-top: 2.5rem;
+    margin-top: 2rem;
 }
 
 
@@ -688,27 +671,6 @@ footer {
     font-family: "Space Mono", monospace;
     font-size: 0.9rem;
 }
-
-
-/* =========================================================
-   BOOKSHELF
-   ========================================================= */
-
-/*
-   This will automatically style the bookshelf photo once
-   you uncomment/add it in reading.html.
-*/
-.bookshelf-photo {
-    display: block;
-
-    width: 100%;
-    max-width: 850px;
-
-    margin-top: 2rem;
-
-    object-fit: cover;
-}
-
 
 /* =========================================================
    BOOKS THAT STAYED WITH ME
