@@ -188,15 +188,11 @@ header {
        On very wide screens, the calculation keeps everything
        aligned with the 1200px max-width content area.
     */
-    padding-left: max(
-        5%,
-        calc((100% - var(--content-width)) / 2)
-    );
+    padding-left: max(5%,
+            calc((100% - var(--content-width)) / 2));
 
-    padding-right: max(
-        5%,
-        calc((100% - var(--content-width)) / 2)
-    );
+    padding-right: max(5%,
+            calc((100% - var(--content-width)) / 2));
 
     padding-block: 2rem;
 
@@ -474,7 +470,14 @@ article {
     /* Indicates that clicking will enlarge the image */
     cursor: zoom-in;
 
-    transition: opacity 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.02);
+    opacity: 0.8;
 }
 
 
@@ -533,9 +536,7 @@ article {
     display: grid;
 
     grid-template-columns:
-        auto
-        minmax(0, 1fr)
-        auto;
+        auto minmax(0, 1fr) auto;
 
     align-items: center;
 
@@ -627,7 +628,7 @@ footer {
    The first section does not need one because it begins
    immediately underneath the page header.
 */
-.reading-page section + section {
+.reading-page section+section {
     border-top: 1px solid var(--border);
 }
 
