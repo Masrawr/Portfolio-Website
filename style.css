@@ -159,7 +159,7 @@ footer {
    Gives each homepage section plenty of vertical separation.
 */
 section {
-    padding-block: 7rem;
+    padding-block: 2rem;
 }
 
 
@@ -267,13 +267,23 @@ nav {
    clamp() allows the text to automatically scale between
    a minimum and maximum size depending on screen width.
 */
+
+/* Desktop hero uses two columns */
+.hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+
+    align-items: center;
+}
+
 .hero-title {
     font-family: "Space Mono", monospace;
 
     font-size: clamp(1.8rem, 4vw, 3.5rem);
     line-height: 1.2;
 
-    max-width: 20ch;
+    max-width: 18ch;
 }
 
 
@@ -768,6 +778,43 @@ footer {
     font-family: "Space Mono", monospace;
 }
 
+/* =========================================================
+   16. FORMULA 1 PAGE
+   ========================================================= */
+
+/*
+   Desktop layout:
+
+   Text                    Car image
+*/
+.f1-team-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 4rem;
+
+    align-items: center;
+
+    margin-top: 2rem;
+}
+
+
+/*
+   Keeps the full car visible without cropping it.
+*/
+.f1-car {
+    display: block;
+
+    width: 100%;
+    max-width: 520px;
+
+    height: auto;
+
+    object-fit: contain;
+
+    justify-self: end;
+}
+
 
 /*
    The original prompt is visually muted so the much longer
@@ -788,42 +835,7 @@ footer {
 
 
 /* =========================================================
-   QUOTE ARCHIVE
-   ========================================================= */
-
-/*
-   Future expandable archive using <details> and <summary>.
-*/
-.quote-archive {
-    margin-top: 2rem;
-
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-
-    padding-block: 1.5rem;
-}
-
-
-/*
-   <summary> is clickable, so the pointer cursor makes that
-   behavior clearer to visitors.
-*/
-.quote-archive summary {
-    cursor: pointer;
-
-    font-family: "Space Mono", monospace;
-    font-weight: bold;
-}
-
-
-/* Space between the summary and opened quote collection */
-.quote-archive[open] summary {
-    margin-bottom: 2rem;
-}
-
-
-/* =========================================================
-   16. MOBILE / RESPONSIVE STYLES
+   17. MOBILE / RESPONSIVE STYLES
    ========================================================= */
 
 /*
@@ -835,12 +847,17 @@ footer {
 */
 @media (max-width: 700px) {
 
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
     /*
        Sections need slightly less vertical spacing
        on smaller screens.
     */
     section {
-        padding-block: 4rem;
+        padding-block: 1.7rem;
     }
 
 
@@ -952,5 +969,15 @@ footer {
     .ai-response,
     .ai-reaction {
         padding: 1.25rem;
+    }
+
+    .f1-team-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .f1-pics {
+        justify-self: start;
+        max-width: 100%;
     }
 }
