@@ -4,6 +4,10 @@ My personal portfolio website, built from scratch with HTML, CSS, and JavaScript
 
 **Website:** [masroorjehangiri.com](https://masroorjehangiri.com/)
 
+## Website Preview
+
+![Portfolio Website Screenshot](./images/Screenshot/website_homepage.png)
+
 ## Features
 
 - Responsive layouts for desktop and mobile screens.
