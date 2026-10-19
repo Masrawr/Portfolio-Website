@@ -1,0 +1,53 @@
+/* =========================================================
+   16. FORMULA 1 PAGE
+   ========================================================= */
+
+/*
+   Desktop layout:
+
+   Text                    Car image
+*/
+.f1-team-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 4rem;
+
+    align-items: center;
+
+    margin-top: 2rem;
+}
+
+
+/*
+   Keeps the full car visible without cropping it.
+*/
+.f1-pics {
+    display: block;
+
+    width: 100%;
+    max-width: 520px;
+
+    height: auto;
+
+    object-fit: contain;
+
+    justify-self: end;
+}
+
+/* =========================================================
+   MOBILE / RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .f1-team-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .f1-pics {
+        justify-self: start;
+        max-width: 100%;
+    }
+}
