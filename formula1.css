@@ -10,22 +10,22 @@
 */
 body {
     background:
-        linear-gradient(rgba(0, 0, 0, 0.025) 1px,
+        linear-gradient(rgba(0, 0, 0, 0.055) 1px,
             transparent 1px),
         linear-gradient(90deg,
-            rgba(0, 0, 0, 0.025) 1px,
+            rgba(0, 0, 0, 0.055) 1px,
             transparent 1px),
-        radial-gradient(circle at 90% 15%,
-            rgba(30, 75, 160, 0.08),
+        radial-gradient(circle at 90% 10%,
+            rgba(35, 75, 180, 0.18),
             transparent 35%),
         radial-gradient(circle at 10% 85%,
-            rgba(190, 35, 45, 0.06),
+            rgba(210, 30, 45, 0.14),
             transparent 35%),
         var(--background);
 
     background-size:
-        45px 45px,
-        45px 45px,
+        40px 40px,
+        40px 40px,
         auto,
         auto,
         auto;
@@ -35,33 +35,33 @@ body {
 
 
 /*
-   Dark mode version of the same background.
+   Dark mode:
+   brighter grid and slightly stronger accent glows.
 */
 body.dark-mode {
     background:
-        linear-gradient(rgba(255, 255, 255, 0.025) 1px,
+        linear-gradient(rgba(255, 255, 255, 0.055) 1px,
             transparent 1px),
         linear-gradient(90deg,
-            rgba(255, 255, 255, 0.025) 1px,
+            rgba(255, 255, 255, 0.055) 1px,
             transparent 1px),
-        radial-gradient(circle at 90% 15%,
-            rgba(40, 80, 180, 0.12),
+        radial-gradient(circle at 90% 10%,
+            rgba(45, 90, 220, 0.22),
             transparent 35%),
         radial-gradient(circle at 10% 85%,
-            rgba(200, 35, 45, 0.08),
+            rgba(220, 35, 50, 0.16),
             transparent 35%),
         var(--background);
 
     background-size:
-        45px 45px,
-        45px 45px,
+        40px 40px,
+        40px 40px,
         auto,
         auto,
         auto;
 
     background-attachment: fixed;
 }
-
 
 /* =========================================================
    2. TEAM / DRIVER LAYOUT
