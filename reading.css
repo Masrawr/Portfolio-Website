@@ -1,11 +1,52 @@
-/* 15. READING PAGE */
+/* =========================================================
+   1. READING PAGE BACKGROUND
+   ========================================================= */
 
 /*
-   The Reading page is intentionally narrower than the
-   homepage.
+   Light mode:
+   warm, paper-like background using soft brown radial gradients.
+*/
+body {
+    background:
+        radial-gradient(circle at 15% 10%,
+            rgba(155, 120, 70, 0.08),
+            transparent 35%),
+        radial-gradient(circle at 85% 85%,
+            rgba(120, 90, 55, 0.05),
+            transparent 40%),
+        var(--background);
+
+    background-attachment: fixed;
+}
+
+
+/*
+   Dark mode:
+   same idea, but much more subtle.
+*/
+body.dark-mode {
+    background:
+        radial-gradient(circle at 15% 10%,
+            rgba(180, 140, 90, 0.06),
+            transparent 35%),
+        radial-gradient(circle at 85% 85%,
+            rgba(130, 100, 70, 0.04),
+            transparent 40%),
+        var(--background);
+
+    background-attachment: fixed;
+}
+
+
+/* =========================================================
+   2. READING PAGE LAYOUT
+   ========================================================= */
+
+/*
+   The Reading page is intentionally narrower than the homepage.
 
    Long-form text is easier to read when it does not stretch
-   across the full 1200px page width.
+   across the full 1200px site width.
 */
 .reading-page {
     max-width: 950px;
@@ -13,19 +54,20 @@
 
 
 /*
-   Reading sections use slightly less vertical spacing than
-   homepage sections because this page contains many sections.
+   Reading sections use slightly less vertical spacing because
+   this page contains much more long-form content.
 */
 .reading-page section {
     padding-block: 2rem;
 }
 
+
 /* =========================================================
-   READING STATS
+   3. READING STATS
    ========================================================= */
 
 /*
-   Displays the three reading statistics side-by-side:
+   Desktop layout:
 
    64              34              6
    Books Owned     Completed       This Year
@@ -41,9 +83,8 @@
 
 
 /*
-   Each statistic is kept simple instead of looking like
-   a separate card, which matches the rest of the site's
-   minimal design.
+   Each statistic stays visually simple instead of looking
+   like a separate card.
 */
 .reading-stat {
     padding-block: 1.5rem;
@@ -53,7 +94,7 @@
 }
 
 
-/* Large number */
+/* Large statistic number */
 .reading-stat strong {
     display: block;
 
@@ -64,7 +105,7 @@
 }
 
 
-/* Label underneath the number */
+/* Label underneath the statistic */
 .reading-stat span {
     display: block;
 
@@ -76,15 +117,15 @@
     font-size: 0.9rem;
 }
 
+
 /* =========================================================
-   BOOKS THAT STAYED WITH ME
+   4. BOOKS THAT STAYED WITH ME
    ========================================================= */
 
 /*
-   The global <article> rule already gives book entries
-   borders and spacing.
+   The global <article> rule already creates spacing and borders.
 
-   This removes unnecessary space above the first book.
+   This removes unnecessary top padding from the first book.
 */
 .favorite-books .book-entry:first-of-type {
     padding-top: 0;
@@ -101,37 +142,35 @@
 
 
 /* =========================================================
-   FAVORITE QUOTES
+   5. FAVORITE QUOTES
    ========================================================= */
 
 /*
-   Each saved quote becomes its own readable block.
-
-   The left border visually separates quotations from
-   normal paragraphs without making them look like cards.
+   The left border separates quotations from normal paragraphs
+   without making them look like cards.
 */
 .favorite-quote {
     margin: 3rem 0;
-    padding: 0.5rem 0 0.5rem 2rem;
+
+    padding:
+        0.5rem 0 0.5rem 2rem;
 
     border-left: 3px solid var(--border);
 }
 
 
-/*
-   Quotes are slightly larger than normal body text so that
-   they become the focus of this section.
-*/
+/* Quote text */
 .favorite-quote p {
     margin-top: 0;
 
+    max-width: 60ch;
+
     font-size: 1rem;
     line-height: 1.8;
-
-    max-width: 60ch;
 }
 
-/* Quote author / source */
+
+/* Quote author or source */
 .favorite-quote cite {
     color: var(--muted);
 
@@ -143,18 +182,18 @@
 
 
 /* =========================================================
-   AI QUOTE ANALYSIS
+   6. AI QUOTE ANALYSIS
    ========================================================= */
 
 /*
-   The prompt, AI response, and your own reaction all belong
-   to the same experiment, so they receive a shared visual
-   treatment.
+   The prompt, AI response, and personal reaction use the same
+   visual treatment so they feel like one experiment.
 */
 .ai-prompt,
 .ai-response,
 .ai-reaction {
     margin-top: 3rem;
+
     padding: 2rem;
 
     border: 1px solid var(--border);
@@ -162,7 +201,7 @@
 
 
 /*
-   Removes excess spacing above headings inside the boxes.
+   Removes excess space above headings inside the boxes.
 */
 .ai-prompt h3,
 .ai-response h3,
@@ -172,30 +211,49 @@
     font-family: "Space Mono", monospace;
 }
 
+
 /* =========================================================
-   MOBILE / RESPONSIVE
+   7. MOBILE / RESPONSIVE
    ========================================================= */
 
 @media (max-width: 700px) {
 
+    /*
+       Reading stats stack vertically on phones.
+    */
     .reading-stats-grid {
         grid-template-columns: 1fr;
+
         gap: 1rem;
     }
 
+
+    /*
+       Slightly tighter section spacing on smaller screens.
+    */
     .reading-page section {
         padding-block: 1.5rem;
     }
 
+
+    /*
+       Quotes need less indentation on narrow screens.
+    */
     .favorite-quote {
         margin-block: 2rem;
+
         padding-left: 1.25rem;
     }
+
 
     .favorite-quote p {
         font-size: 1.1rem;
     }
 
+
+    /*
+       Reduce padding inside AI boxes on phones.
+    */
     .ai-prompt,
     .ai-response,
     .ai-reaction {

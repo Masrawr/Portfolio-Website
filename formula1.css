@@ -1,11 +1,76 @@
 /* =========================================================
-   16. FORMULA 1 PAGE
+   1. FORMULA 1 PAGE BACKGROUND
+   ========================================================= */
+
+/*
+   Light mode:
+   - faint technical grid
+   - subtle blue glow in the top-right
+   - subtle red glow in the bottom-left
+*/
+body {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.025) 1px,
+            transparent 1px),
+        linear-gradient(90deg,
+            rgba(0, 0, 0, 0.025) 1px,
+            transparent 1px),
+        radial-gradient(circle at 90% 15%,
+            rgba(30, 75, 160, 0.08),
+            transparent 35%),
+        radial-gradient(circle at 10% 85%,
+            rgba(190, 35, 45, 0.06),
+            transparent 35%),
+        var(--background);
+
+    background-size:
+        45px 45px,
+        45px 45px,
+        auto,
+        auto,
+        auto;
+
+    background-attachment: fixed;
+}
+
+
+/*
+   Dark mode version of the same background.
+*/
+body.dark-mode {
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px),
+        linear-gradient(90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px),
+        radial-gradient(circle at 90% 15%,
+            rgba(40, 80, 180, 0.12),
+            transparent 35%),
+        radial-gradient(circle at 10% 85%,
+            rgba(200, 35, 45, 0.08),
+            transparent 35%),
+        var(--background);
+
+    background-size:
+        45px 45px,
+        45px 45px,
+        auto,
+        auto,
+        auto;
+
+    background-attachment: fixed;
+}
+
+
+/* =========================================================
+   2. TEAM / DRIVER LAYOUT
    ========================================================= */
 
 /*
    Desktop layout:
 
-   Text                    Car image
+   Text                 Image
 */
 .f1-team-layout {
     display: grid;
@@ -19,8 +84,12 @@
 }
 
 
+/* =========================================================
+   3. FORMULA 1 IMAGES
+   ========================================================= */
+
 /*
-   Keeps the full car visible without cropping it.
+   Keeps the full image visible without cropping it.
 */
 .f1-pics {
     display: block;
@@ -35,19 +104,29 @@
     justify-self: end;
 }
 
+
 /* =========================================================
-   MOBILE / RESPONSIVE
+   4. MOBILE / RESPONSIVE
    ========================================================= */
 
 @media (max-width: 700px) {
 
+    /*
+       Text and image stack vertically on phones.
+    */
     .f1-team-layout {
         grid-template-columns: 1fr;
+
         gap: 1.5rem;
     }
 
+
+    /*
+       Let the image use the full available width.
+    */
     .f1-pics {
         justify-self: start;
+
         max-width: 100%;
     }
 }
