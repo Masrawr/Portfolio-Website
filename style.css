@@ -206,7 +206,16 @@ header {
 
     transition:
         background 0.25s ease,
-        border-color 0.25s ease;
+        border-color 0.25s ease,
+        transform 0.3s ease;
+}
+
+/*
+   JavaScript adds this class while the user scrolls down.
+   -100% moves the entire header upward by its own height.
+*/
+.header-hidden {
+    transform: translateY(-100%);
 }
 
 
@@ -866,8 +875,6 @@ footer {
        instead of forcing everything into one row.
     */
     header {
-        position: sticky;
-
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;

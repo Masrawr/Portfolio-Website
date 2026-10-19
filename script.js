@@ -176,3 +176,29 @@ if (photos.length > 0 && lightbox) {
 
     });
 }
+
+// HIDE HEADER WHILE SCROLLING DOWN
+
+const header = document.querySelector("header");
+
+let lastScrollPosition = window.scrollY;
+
+window.addEventListener("scroll", function () {
+
+    const currentScrollPosition = window.scrollY;
+
+    // Scrolling down and already some distance from the top
+    if (
+        currentScrollPosition > lastScrollPosition &&
+        currentScrollPosition > 100
+    ) {
+        header.classList.add("header-hidden");
+    }
+
+    // Scrolling upward
+    else {
+        header.classList.remove("header-hidden");
+    }
+
+    lastScrollPosition = currentScrollPosition;
+});
