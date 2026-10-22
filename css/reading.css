@@ -24,6 +24,42 @@ body {
     background-attachment: fixed;
 }
 
+/*=========================================================2. READING HEADER=========================================================*/
+
+/*
+   Warm paper-like header that matches the Reading page.
+   It stays mostly opaque because content scrolls behind it.
+*/
+header {
+    background:
+        linear-gradient(90deg,
+            #d8c3a5,
+            #eee2cf,
+            #c9ad86);
+
+    color: #2a2118;
+
+    border-bottom: 1px solid rgba(70, 50, 30, 0.25);
+}
+
+header a {
+    color: #2a2118;
+}
+
+body.dark-mode header {
+    background:
+        linear-gradient(90deg,
+            #33281e,
+            #241d17,
+            #3d2f22);
+
+    color: #f3efe4;
+}
+
+body.dark-mode header a {
+    color: #f3efe4;
+}
+
 
 /*
    Dark mode:

@@ -33,6 +33,38 @@ body {
     background-attachment: fixed;
 }
 
+/* =========================================================
+   2. FORMULA 1 HEADER
+   ========================================================= */
+
+/*
+   Technical header using subtle Red Bull-inspired
+   blue and red lighting.
+*/
+header {
+    background:
+        linear-gradient(90deg,
+            rgba(20, 45, 110, 0.95),
+            rgba(35, 35, 35, 0.95) 55%,
+            rgba(125, 20, 30, 0.95));
+
+    color: white;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+header a {
+    color: white;
+}
+
+body.dark-mode header {
+    background:
+        linear-gradient(90deg,
+            rgba(15, 35, 90, 0.96),
+            rgba(20, 20, 20, 0.96) 55%,
+            rgba(100, 15, 25, 0.96));
+}
+
 
 /*
    Dark mode:
@@ -62,6 +94,7 @@ body.dark-mode {
 
     background-attachment: fixed;
 }
+
 
 /* =========================================================
    2. TEAM / DRIVER LAYOUT
