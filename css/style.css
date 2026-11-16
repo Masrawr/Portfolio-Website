@@ -318,25 +318,40 @@ nav {
 */
 .about-layout {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1.4fr 1fr;
 
     gap: 4rem;
 
-    align-items: start;
+    align-items: center;
+}
+
+
+/* =========================================================
+   ABOUT PHOTO GRID
+   ========================================================= */
+
+/*
+   Four personal photos arranged in a 2 × 2 grid.
+*/
+.about-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 0.75rem;
 }
 
 
 /*
-   Keeps the About photo at a consistent portrait shape.
-
-   object-fit: cover prevents stretching while allowing
-   the image to fill its container.
+   Every photo uses the same square shape so the collage
+   remains balanced even when the original photos differ.
 */
-.about-photo {
+.about-photo-grid img {
     width: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 1 / 1;
 
     object-fit: cover;
+
+    display: block;
 }
 
 
@@ -704,6 +719,10 @@ footer {
         grid-template-columns: 1fr;
 
         gap: 2rem;
+    }
+
+    .about-photo-grid {
+        gap: 0.5rem;
     }
 
 
